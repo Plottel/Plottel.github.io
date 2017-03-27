@@ -47,38 +47,327 @@
 <dl class="class">
 <dt id="Vector.Vector">
 <em class="property">class </em><code class="descclassname">Vector.</code><code class="descname">Vector</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Standard 2D vector used throughout the program. Used in both Vector operations and representing points in 2D space.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-axis component.</li>
-<li><strong>y</strong> &#8211; The y-axis component.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="staticmethod">
-<dt id="Vector.Vector.dist_between_vectors">
-<em class="property">static </em><code class="descname">dist_between_vectors</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.dist_between_vectors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the distance between two passed in Vectors. Requires slow sqrt operation.</p>
-</dd></dl>
-
+<dd><p>2D Vector used throughout the program. Defines operator overloads and various helper functions. This class 
+also doubles as a Point2D. Most methods are invoked on and will modify a Vector; however, many have static
+equivalents which will not modify the passed in Vector.</p>
+<p>Initializes x and y components of the Vector.</p>
 <dl class="method">
-<dt id="Vector.Vector.dot">
-<code class="descname">dot</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.dot" title="Permalink to this definition">¶</a></dt>
+<dt id="Vector.Vector.__add__">
+<code class="descname">__add__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="function">
 <dt>
-<code class="descname">Returns a new Vector equal to the product of self and passed in Vector - does not modify self.</code></dt>
+<code class="descname">Overload &quot;+&quot; operator for another Vector.</code></dt>
+<dt>
+<code class="descname">Returns a new Vector equal to adding the passed in Vector to the current Vector.</code></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vector</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The vector to be multiplied by self.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The Vector to be added to the current Vector.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The dot product of the passed in Vector and self.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;==&quot; operator.</code></dt>
+<dt>
+<code class="descname">Returns True if the passed in Vector has the same x and y values as the current Vector.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The Vector to be compared.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the Vectors have the same x and y values.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes x and y components of the Vector.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__mul__">
+<code class="descname">__mul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;*&quot; operator for another Vector.</code></dt>
+<dt>
+<code class="descname">Returns a new Vector equal to multiplying the passed in Vector by the current Vector.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The vector to be multiplied by the current Vector.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__ne__">
+<code class="descname">__ne__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__ne__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;!=&quot; operator.</code></dt>
+<dt>
+<code class="descname">Returns False if the passed in Vector has the same x and y values as the current Vector.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The Vector to be compared.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">False if the Vectors have the same x and y values.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__radd__">
+<code class="descname">__radd__</code><span class="sig-paren">(</span><em>scalar</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__radd__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;+&quot; operator for a scalar.</code></dt>
+<dt>
+<code class="descname">Returns a new Vector equal to adding the passed in scalar to the current Vector.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scalar</strong> (<em>float</em>) &#8211; The scalar to be added to the current Vector.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__rmul__">
+<code class="descname">__rmul__</code><span class="sig-paren">(</span><em>scalar</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__rmul__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;*&quot; operator for a scalar.</code></dt>
+<dt>
+<code class="descname">Returns a new Vector equal to multiplying the current Vector by the passed in scalar.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scalar</strong> (<em>float</em>) &#8211; The scalar to multiply the current Vector by.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__rsub__">
+<code class="descname">__rsub__</code><span class="sig-paren">(</span><em>scalar</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__rsub__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;-&quot; operator for a scalar.</code></dt>
+<dt>
+<code class="descname">Returns a new Vector equal to subtracting the passed in scalar from the current Vector.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scalar</strong> (<em>float</em>) &#8211; The scalar to be subtracted from the current Vector.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__rtruediv__">
+<code class="descname">__rtruediv__</code><span class="sig-paren">(</span><em>scalar</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__rtruediv__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;/&quot; operator for a scalar.</code></dt>
+<dt>
+<code class="descname">Returns a new Vector equal to dividing the current Vector by the passed in scalar.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scalar</strong> (<em>float</em>) &#8211; The scalar to divide the current Vector by.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;str()&quot; method.</code></dt>
+<dt>
+<code class="descname">Converts the current Vector into string format for easy printing.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The current Vector in string format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">String</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__sub__">
+<code class="descname">__sub__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__sub__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;-&quot; operator for another Vector.</code></dt>
+<dt>
+<code class="descname">Returns a new Vector equal to subtracting the passed in Vector from the current Vector.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The Vector to be subtracted from the current Vector.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.__truediv__">
+<code class="descname">__truediv__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.__truediv__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Overload &quot;/&quot; operator for another Vector.</code></dt>
+<dt>
+<code class="descname">Returns a new Vector equal to dividing the current Vector by the passed in Vector.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The Vector to divide the current Vector by.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vector.Vector.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#Vector.Vector.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="Vector.Vector.dist_between_vectors">
+<em class="property">static </em><code class="descname">dist_between_vectors</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.dist_between_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Returns the distance between the two passed in Vectors.</code></dt>
+<dt>
+<code class="descname">This requires a sqrt operation so should not be used for comparison between distances.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>v1</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The first Vector.</li>
+<li><strong>v2</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The second Vector.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The distance between the two passed in Vectors.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="Vector.Vector.dot">
+<code class="descname">dot</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.dot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Returns a new Vector equal to the product of the current Vector and the passed in Vector.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The Vector to be multiplied by the current Vector.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
 </tr>
@@ -91,58 +380,106 @@
 <dl class="staticmethod">
 <dt id="Vector.Vector.get_normalized">
 <em class="property">static </em><code class="descname">get_normalized</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.get_normalized" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a new Vector equal to normalisd self x and y values - does not modify self. Will not operate if Vector length is 0.</p>
+<dd><dl class="function">
+<dt>
+<code class="descname">Returns a new Vector equal to the normalized value of the passed in Vector.</code></dt>
+<dt>
+<code class="descname">Will not operate if the Vector length is 0.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vector</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The Vector to get the normalized value of.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new Vector.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="attribute">
 <dt id="Vector.Vector.length">
 <code class="descname">length</code><a class="headerlink" href="#Vector.Vector.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the length of the Vector. Requires slow sqrt operation.</p>
+<dd><p>Returns the length of the Vector. Uses a sqrt operation so should not be used for comparison between Vectors.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Vector.Vector.normalize">
 <code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.normalize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalises self x and y values between 0 and 1 - modifies self. Will not operate if Vector length is 0.</p>
+<dd><p>Normalises the x and y values of the current Vector to between 0 and 1.
+Will not operate if the Vector length is 0.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="Vector.Vector.perp">
 <code class="descname">perp</code><a class="headerlink" href="#Vector.Vector.perp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the Vector perpendicular to self - does not modify self.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="Vector.Vector.sign">
-<code class="descname">sign</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.sign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specifies if self is clockwise or anti-clockwise from the passed in Vector - does not modify self. Returns -1 if anticlockwise,
-1 if clockwise.</p>
+<dd><p>Returns a new Vector facing perpendicular to the current Vector.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Vector.Vector.sq_dist_between_vectors">
 <em class="property">static </em><code class="descname">sq_dist_between_vectors</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.sq_dist_between_vectors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the square distance between two passed in Vectors. Preferred by comparison of distance between multiple Vectors,
-as slow sqrt operation is not required.</p>
+<dd><dl class="function">
+<dt>
+<code class="descname">Returns the squared distance between the two passed in Vectors.</code></dt>
+<dt>
+<code class="descname">This does not use a sqrt operation so is preferred for comparison between distances.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>v1</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The first Vector.</li>
+<li><strong>v2</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The second Vector.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The squared distance between the two passed in Vectors.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="attribute">
 <dt id="Vector.Vector.sq_length">
 <code class="descname">sq_length</code><a class="headerlink" href="#Vector.Vector.sq_length" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the square length of the Vector. Preferred for comparison 
-between Vectors as slow sqrt operation is not needed.</p>
+<dd><p>Returns the square length of the Vector. No sqrt operation used so this is preferred for comparison between Vectors.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Vector.Vector.truncate">
-<code class="descname">truncate</code><span class="sig-paren">(</span><em>max_speed</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.truncate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clamps the Vector x / y values to the passd in maximum value - modifies self.</p>
+<code class="descname">truncate</code><span class="sig-paren">(</span><em>max</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.truncate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descname">Clamps the current Vector to the passed in maximum value.</code></dt>
+<dt>
+<code class="descname">If the current Vector exceeds the max length, it is normalised and multiplied by the max length.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max</strong> (<em>float</em>) &#8211; The value to clamp the current Vector to.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="method">
 <dt id="Vector.Vector.zero">
 <code class="descname">zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.zero" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets self x and y values to 0 - modifies self.</p>
+<dd><p>Resets the x and y values of the current Vector to 0.</p>
 </dd></dl>
 
 </dd></dl>

@@ -156,3 +156,5 @@ texinfo_documents = [
 
 
 autoclass_content = 'both'
+autodoc_default_flags = ['members', 'private-members', 'special-members']
+

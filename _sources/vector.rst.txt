@@ -4,4 +4,3 @@
 
 .. currentmodule:: Vector
 .. autoclass:: Vector.Vector
-	:members:
