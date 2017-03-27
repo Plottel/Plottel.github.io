@@ -10,7 +10,7 @@ Welcome to MinecaRTS's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   intro
+   vector
 
 
 
