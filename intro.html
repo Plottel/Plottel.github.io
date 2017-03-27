@@ -57,8 +57,21 @@ on two lines???</li>
 # Also this.</p>
 <dl class="class">
 <dt id="Vector.Vector">
-<em class="property">class </em><code class="descclassname">Vector.</code><code class="descname">Vector</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="staticmethod">
+<em class="property">class </em><code class="descclassname">Vector.</code><code class="descname">Vector</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard 2D vector used throughout the program. Used in both Vector operations and representing points in 2D space.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-axis component.</li>
+<li><strong>y</strong> &#8211; The y-axis component.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
 <dt id="Vector.Vector.dist_between_vectors">
 <em class="property">static </em><code class="descname">dist_between_vectors</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.dist_between_vectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance between two passed in Vectors. Requires slow sqrt operation.</p>
@@ -67,7 +80,29 @@ on two lines???</li>
 <dl class="method">
 <dt id="Vector.Vector.dot">
 <code class="descname">dot</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.dot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a new Vector equal to the product of self and passed in Vector - does not modify self.</p>
+<dd><dl class="function">
+<dt>
+<code class="descname">Returns a new Vector equal to the product of self and passed in Vector - does not modify self.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vector</strong> (<a class="reference internal" href="#Vector.Vector" title="Vector.Vector"><em>Vector</em></a>) &#8211; The vector to be multiplied by self.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The dot product of the passed in Vector and self.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Vector.Vector" title="Vector.Vector">Vector</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="Vector.Vector.get_normalized">
+<em class="property">static </em><code class="descname">get_normalized</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.get_normalized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new Vector equal to normalisd self x and y values - does not modify self. Will not operate if Vector length is 0.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -80,12 +115,6 @@ on two lines???</li>
 <dt id="Vector.Vector.normalize">
 <code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.normalize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalises self x and y values between 0 and 1 - modifies self. Will not operate if Vector length is 0.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="Vector.Vector.normalize_vector">
-<em class="property">static </em><code class="descname">normalize_vector</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#Vector.Vector.normalize_vector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a new Vector equal to normalisd self x and y values - does not modify self. Will not operate if Vector length is 0.</p>
 </dd></dl>
 
 <dl class="attribute">
